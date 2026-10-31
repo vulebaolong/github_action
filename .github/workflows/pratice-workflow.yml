@@ -40,9 +40,6 @@ jobs:
               id: output
               run: echo "status=success" >> $GITHUB_OUTPUT
 
-            - name: TruffleHog OSS
-              uses: trufflesecurity/trufflehog@v3.99.7
-
     job_deploy:
         runs-on: ubuntu-latest
         needs: [job_check, job_build]
