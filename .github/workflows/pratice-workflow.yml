@@ -31,7 +31,13 @@ jobs:
         runs-on: ubuntu-latest
 
         outputs:
-          job_build_status: "success"
+          job_build_status: ${{ steps.output.outputs.status }}
+
+        steps:
+          - name: output
+            id: output
+            run: echo "status=success" >> $GITHUB_OUTPUT
+                
 
     job_deploy:
         runs-on: ubuntu-latest
