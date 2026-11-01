@@ -24,7 +24,7 @@ jobs:
                   ssh-private-key: ${{ secrets.SSH_KEY }}
 
             - name: Trust Host
-              run: ssh-keygen -H ${{  secrets.SSH_IP }}  >> ~/.ssh/known_hosts
+              run: ssh-keyscan -H ${{  secrets.SSH_IP }}  >> ~/.ssh/known_hosts
 
             - name: Connect Server
               run: |
