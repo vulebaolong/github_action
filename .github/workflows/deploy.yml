@@ -21,8 +21,10 @@ jobs:
             - name: webfactory/ssh-agent
               uses: webfactory/ssh-agent@v0.10.0
               with:
-                  ssh-private-key: |
-                      ${{ secrets.SSH_KEY }}
+                  ssh-private-key: ${{ secrets.SSH_KEY }}
+
+            - name: Trust Host
+              run: ssh-keygen -H ${{  secrets.SSH_IP }}  >> ~/.ssh/known_hosts
 
             - name: Connect Server
               run: |
