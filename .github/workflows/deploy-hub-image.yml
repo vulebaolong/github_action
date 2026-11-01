@@ -131,8 +131,8 @@ jobs:
                   server_address: smtp.gmail.com
                   server_port: 465
                   secure: true
-                  username: vulebaolong@gmail.com
-                  password: lrftnjfglrsdyeyx
+                  username: ${{ secrets.EMAIL_USER }}
+                  password: ${{ secrets.EMAIL_PASS }}
                   subject: Github Actions job result
                   to: vulebaolong@gmail.com
                   from: "Anh long <vulebaolong@gmail>"

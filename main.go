@@ -20,8 +20,7 @@ func main() {
 	godotenv.Load()
 
 	DATABASE_URL := os.Getenv("DATABASE_URL")
-	log.Println("DATABASE_URL=", DATABASE_URL)
-	log.Println("ANH LONG DATABASE_URL=", DATABASE_URL)
+	log.Println("ANH LONG LONG DATABASE_URL=", DATABASE_URL)
 	if DATABASE_URL == "" {
 		log.Println("WARNING: DATABASE_URL is not configured")
 	}
