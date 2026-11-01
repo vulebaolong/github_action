@@ -18,7 +18,7 @@ jobs:
               uses: actions/checkout@v7.0.1
 
             - name: Use Common
-              uses: ./.github/actions/common.yml
+              uses: ./.github/actions
               with:
                 ssh-key: ${{ secrets.SSH_KEY }}
                 ssh-ip: ${{ secrets.SSH_IP }}
@@ -54,7 +54,7 @@ jobs:
               uses: actions/checkout@v7.0.1
 
             - name: Use Common
-              uses: ./.github/actions/common.yml
+              uses: ./.github/actions
               with:
                 ssh-key: ${{ secrets.SSH_KEY }}
                 ssh-ip: ${{ secrets.SSH_IP }}
