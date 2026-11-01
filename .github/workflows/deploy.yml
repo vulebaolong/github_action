@@ -1,4 +1,4 @@
-name: Practice WorkFlow
+name: Deploy
 
 on:
     push:
@@ -18,8 +18,11 @@ jobs:
             - name: Check Dockerfile file
               run: test -f Dockerfile
 
-            - name: Test
-              run: ls -la
+            - name: Connect Server
+              run: |
+                  ssh -i ${{ secrets.SSH_KEY }} ${{ secrets.SSH_USER }}@${{ secrets.SSH_IP }} "
+                    ls -la
+                  "
 
     # job_build:
     #     runs-on: ubuntu-latest
