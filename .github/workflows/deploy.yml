@@ -51,16 +51,18 @@ jobs:
                     test -f docker-compose.yml
                   "
 
-    # job_build:
-    #     runs-on: ubuntu-latest
+    job_build:
+        runs-on: ubuntu-latest
 
-    #     outputs:
-    #         job_build_status: ${{ steps.output.outputs.status }}
+        steps:
+            - name: Checkout source
+              uses: actions/checkout@v7.0.1
 
-    #     steps:
-    #         - name: output
-    #           id: output
-    #           run: echo "status=success" >> $GITHUB_OUTPUT
+            - name: Build Image Docker
+              run: docker build -t go_gin_be_img .
+
+            - name: Move Image To Server
+              run: docker save go_gin_be_img | gzip | ssh $SSH_SERVER "gunzip | docker load" 
 
     # job_deploy:
     #     runs-on: ubuntu-latest
