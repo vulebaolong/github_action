@@ -18,9 +18,14 @@ jobs:
             - name: Check Dockerfile file
               run: test -f Dockerfile
 
+            - name: webfactory/ssh-agent
+              uses: webfactory/ssh-agent@v0.10.0
+              with:
+                  ssh-private-key: ${{ secrets.SSH_KEY }}
+
             - name: Connect Server
               run: |
-                  ssh -i ${{ secrets.SSH_KEY }} ${{ secrets.SSH_USER }}@${{ secrets.SSH_IP }} "
+                  ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_IP }} "
                     ls -la
                   "
 
